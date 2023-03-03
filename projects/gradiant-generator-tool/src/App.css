@@ -2,41 +2,45 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 3vh;
 }
 
 .App {
   background-color: white;
   border: 1px solid black;
+  border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 5vh 5vw;
 }
 
 .display {
+  grid-column: 1 / 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 3vh 3vw ;
-  border: 1px solid grey;
-  /* width: 40vh;
-  height: 40vw; */
-  
+  border: 1px solid grey
 }
 
 .display--background {
-  height: 50vh;
-  width: 50vh;
-  background-color: green;
-  /* margin: 10vh; */
+  height: 40vh;
+  width: 40vh;
+}
+
+textarea {
+  width: 40vw;
+  height: 20vh;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  margin: 2vh 2vw 0vh 2vw;
+  padding: 3%
 }
 
 .container--inputs {
   grid-column: 2 / 3;
-}
-
-.gradiant {
-  width: 3vw;
-  margin: 3vh
 }
 
 .input--container {
@@ -44,5 +48,23 @@
   justify-content: space-around;
   align-items: center;
   margin: 3vh 0vw
-
 }
+.input--gradiant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  margin: 10%;
+}
+
+.gradiant {
+  width: 5vw;
+  margin: 1vh;
+}
+
+.addButton {
+  width: 3vw;
+  float: right;
+  margin: 10%
+}
+
