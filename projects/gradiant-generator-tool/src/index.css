@@ -3,10 +3,13 @@
   box-sizing: border-box;
 }
 
-body {
+body,html {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(244, 239, 239);
+  background-size: cover;
+  background: linear-gradient(50deg, #f7f7f7 , #a5bbee, #045258);
 }
 

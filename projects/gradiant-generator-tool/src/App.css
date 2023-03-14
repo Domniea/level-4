@@ -5,13 +5,21 @@
   font-size: 3vh;
 }
 
+.header {
+  text-align: center;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-size: 8vh;
+  margin: 5vh 5vw;
+}
+
 .App {
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 5vh 5vw;
+  margin: 10%;
 }
 
 .display {
@@ -21,7 +29,9 @@
   justify-content: center;
   align-items: center;
   padding: 3vh 3vw ;
-  border: 1px solid grey
+  border-right: 1px solid grey;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .display--background {
@@ -30,17 +40,21 @@
 }
 
 textarea {
-  width: 40vw;
+  width: 30vw;
   height: 20vh;
   color: white;
   background-color: black;
   border-radius: 10px;
   margin: 2vh 2vw 0vh 2vw;
-  padding: 3%
+  padding: 3%;
+  font-size: .5em;
 }
 
 .container--inputs {
   grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .input--container {
@@ -49,6 +63,14 @@ textarea {
   align-items: center;
   margin: 3vh 0vw
 }
+
+
+.lower--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .input--gradiant {
   display: flex;
   justify-content: center;
@@ -59,7 +81,7 @@ textarea {
 
 .gradiant {
   width: 5vw;
-  margin: 1vh;
+  margin: .8vh;
 }
 
 .addButton {
@@ -68,3 +90,45 @@ textarea {
   margin: 10%
 }
 
+@media (max-width: 800px) {
+
+  .App {
+   display: grid;
+   grid-template-columns: 0;
+   display: flex;
+   flex-direction: column;
+   margin: 0;
+  }
+
+  .input--container {
+    margin: 1vh;
+  }
+
+  textarea {
+    width: 90%;
+    height: 15vh;
+  }
+
+  .input--gradiant {
+    margin: 0 5vw
+  }
+
+  .gradiant {
+    width: 20vw;
+  }
+
+  .addButton {
+    text-align: center;
+    width: 20vw;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .lower--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
