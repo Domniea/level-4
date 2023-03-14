@@ -52,6 +52,7 @@ function App() {
         value={text}
         onChange={handleChange}
         disabled={isGameOn? false : true}
+        style={isGameOn ? {background: ''} : {background: 'grey'}}
       >
       </textarea>
       <h4>Time remaining: {timeRemaining}sec</h4>

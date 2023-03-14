@@ -24,8 +24,10 @@ button {
   border: none;
   background: #a80020;
   background: #00b800;
+  color: blue;
   padding: 10px 20px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 h1 {
@@ -36,10 +38,17 @@ h1 {
 textarea {
   font-family: 'Press Start 2P', cursive;
   border: 3px solid black;
-  width: 90%;
+  width: 75%;
   margin: 0 auto;
   outline: none;
   height: 200px;
   background: #00b800;
   padding: 10px;
+}
+
+@media screen and (max-width: 400px){
+  textarea{
+    width: 75vw;
+    height: 25vh;
+  }
 }
