@@ -1,9 +1,13 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect, useRef} from 'react'
 import './App.css'
 
 function App() {
+  const GAME_LENGTH = 15
+
+  const gameInput = useRef(null)
+
   const [text, setText] = useState('')
-  const [timeRemaining, setTimeRemaining] = useState(15)
+  const [timeRemaining, setTimeRemaining] = useState(GAME_LENGTH)
   const [count, setCount] = useState(0)
   const [isGameOn,setIsGameOn] = useState(false)
   
@@ -19,11 +23,26 @@ function App() {
     return total
   }
 
+  // function gameFocus() {
+  //   gameInput.current.focus()
+  // }
+
   function startGame(){
     setCount(0)
-
+    gameInput.current.disabled = false
+    gameInput.current.focus()
     setIsGameOn(prevState => !prevState)
   }
+  
+  function endGame() {
+    setIsGameOn(false)
+    wordCount(text)
+    setTimeRemaining(GAME_LENGTH)
+  }
+
+  // function focus() {
+  //   document.getElementById('textarea').focus()
+  // }
 
   useEffect(() => {
       if(isGameOn && timeRemaining > 0) {
@@ -31,9 +50,7 @@ function App() {
           setTimeRemaining(prevTime => prevTime -1)
         }, 1000);
         } else {
-          setIsGameOn(false)
-          wordCount(text)
-          setTimeRemaining(15)
+          endGame()
         };
   }, [timeRemaining, isGameOn])
 
@@ -48,10 +65,12 @@ function App() {
       <h1>How Fast Do You Type?</h1>
       <textarea
         name='textArea'
+        id='textarea'
         type='text'
         value={text}
         onChange={handleChange}
         disabled={isGameOn? false : true}
+        ref={gameInput}
         style={isGameOn ? {background: ''} : {background: 'grey'}}
       >
       </textarea>
