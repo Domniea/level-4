@@ -1,20 +1,21 @@
 import { useState } from 'react'
+import { useContext } from 'react'
 import Navbar from './components/Navbar'
 import Body from './components/Body'
 import Footer from './components/Footer'
-import {ThemeContextProvider } from './themeContext'
+import { ThemeContext } from './themeContext'
 import './App.css'
 
 function App() {
 
+  const {colors} = useContext(ThemeContext)
+
   return (
-    <ThemeContextProvider>
-      <div className="App">
-        <Navbar />
-        <Body />
-        <Footer />
-      </div>
-      </ThemeContextProvider>
+    <div className={`App ${colors}-theme`}>
+      <Navbar />
+      <Body />
+      <Footer />
+    </div>
   )
 }
 

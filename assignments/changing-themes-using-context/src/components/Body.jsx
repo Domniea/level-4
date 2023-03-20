@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../themeContext'
 
-function Body() {
+function Body(props) {
+
+    const {colors, toggle} = useContext(ThemeContext)
+    // console.log(colors)
     return (
-        <h1>Body Test</h1>
+        <div className='Body'>
+            <h1>Click button to change theme!</h1>
+            <button
+                onClick={toggle}
+                // className={`${colors}-theme`}
+            >Change Theme</button>
+        </div>
     )
 }
 
