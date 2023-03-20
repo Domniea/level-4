@@ -13,12 +13,18 @@ function ThemeContextProvider(props) {
     function toggle() {
         setColors(prevColor => prevColor === "dark" ? "light" : "dark")
     }
+
+    function handleChange(event) {
+        setColors(prevColor => event.target.value)
+   
+    }
     
     return (
         <ThemeContext.Provider 
             value ={{
                 colors: colors,
-                toggle: toggle
+                toggle: toggle,
+                handleChange: handleChange
             }}
         >
         {props.children}

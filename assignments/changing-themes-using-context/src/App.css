@@ -1,3 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+}
+
+.Navbar {
+  grid-row: 1 / 2;
+}
+
+.Navbar {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2
+}
+
+.Body {
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10%;
+  text-align: center;
+}
+
+.Footer {
+  grid-row: 3 / 4;
+}
+
+.new-theme .Footer {
+  grid-column: 1 / -1;
+  grid-row: 2/ 3;
+  background-color: orange;
+  color: aqua;
+}
+
+.new-theme .Navbar {
+  background-color: rgb(17, 255, 0);
+  color: rgb(255, 0, 0);
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.new-theme .Body {
+  grid-row: 1/ 2;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10%;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.new-theme.App  {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 90% 10%;
+  grid-template-columns: 20% 80%;
+}
+
 .dark-theme {
   background-color: rgb(43, 43, 43);
   color: whitesmoke;
@@ -18,29 +91,34 @@
   color: whitesmoke;
 }
 
-
-.light-theme .Navbar, .light-theme .Footer {
-  width: 100vw;
-  background-color: lightblue;
+.light-theme .Navbar {
+  background-color: rgb(36, 198, 252);
 }
 
-.dark-theme .Navbar, .dark-theme .Footer {
-  width: 100vw;
+.light-theme .Footer {
+  background-color: rgb(197, 236, 248);
+}
+
+.dark-theme .Navbar{
   background-color: black;
+  color: crimson;
+}
+
+.dark-theme .Footer {
+  background-color: rgba(0, 0, 0, 0.248);
+  color: crimson;
 }
 
 .Navbar , .Footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 10vh;
 }
 
-.Body {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.light-theme h1 {
+  color: rgb(43, 43, 43);
+}
+.dark-theme h1 {
+  color: rgb(167, 167, 167);
 }
 
