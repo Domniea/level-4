@@ -17,12 +17,12 @@ function UglyThingContextProvider(props) {
     )
 
     const [uglyArray, setUglyArray] = useState([])
-
+    
     useEffect(() => {
             const result = axios.get('https://api.vschool.io/domniea/thing', )
                     .then(response => setUglyArray(response.data))
                     .catch(error => console.log(error))
-    }, [uglyItem])
+    }, [uglyArray.length])
 
     function handleChange() {
         const {name, value} = event.target
@@ -43,7 +43,7 @@ function UglyThingContextProvider(props) {
                 uglyItem
             ]
         })
-        
+     
     axios.post('https://api.vschool.io/domniea/thing', uglyItem)
         .then(response => {
             console.log(response)
@@ -51,19 +51,19 @@ function UglyThingContextProvider(props) {
                 ...prevState,
                 id: response.data._id
             }))
-            console.log(uglyItem)
         })
         .catch(error => console.log(error))
     }
 
-    console.log(uglyArray)
+
     return (
         <UglyThingContext.Provider 
             value={{
                 uglyArray,
                 uglyItem,
+                setUglyArray,
                 handleChange,
-                handleSubmit
+                handleSubmit,
             }}
         >
             {props.children}

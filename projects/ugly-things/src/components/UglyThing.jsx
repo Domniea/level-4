@@ -8,16 +8,23 @@ function UglyThing(props) {
     const {
         uglyArray,
         uglyItem,
+        setUglyArray,
         handleChange,
-        handleSubmit
+        handleSubmit,
     } = useContext(UglyThingContext)
     
     function deleteUgly() {
         console.log('boobs')
         axios.delete(`https://api.vschool.io/domniea/thing/${props.id}`)
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                setUglyArray([])
+                console.log(uglyItem)
+            })
             .catch(error => console.log(error))
     }
+    
+    
 
     return (
         <div>
