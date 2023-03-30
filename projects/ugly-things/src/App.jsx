@@ -16,20 +16,23 @@ function App() {
     handleSubmit
   } = useContext(UglyThingContext)
 
-  const ugly = uglyArray.map(item => {
+  const ugly = uglyArray.map((item, i) => {
     return <UglyThing 
-            key={item.imgUrl}
+            key={i}
             imgUrl={item.imgUrl}
             title={item.title}
             description={item.description}
             id={item._id}
           />
     })
-    
+
+  
   return (
     <div className="App">
       <Form />
-      {ugly}
+      <div className='ugly--container'>
+        {ugly}
+      </div>
     </div>
   )
 }

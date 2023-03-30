@@ -15,16 +15,16 @@ function ThemeContextProvider(props) {
     }
 
     function handleChange(event) {
-        setColors(prevColor => event.target.value)
+        setColors(event.target.value)
    
     }
     
     return (
         <ThemeContext.Provider 
             value ={{
-                colors: colors,
-                toggle: toggle,
-                handleChange: handleChange
+                colors,
+                toggle,
+                handleChange
             }}
         >
         {props.children}
