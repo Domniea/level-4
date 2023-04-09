@@ -1,0 +1,12 @@
+.heroList--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.heroLink {
+    margin: 1%;
+}

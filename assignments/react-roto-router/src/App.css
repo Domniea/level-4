@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  padding: 10vw 10vh;
+}
+
+h1, .Home h4{
+  text-align: center;
+  margin: 5vh 0;
+}
+
+h4 {
+  margin: 5vh 0;
+}
+
+ .servicesLink {
+  margin: 2%;
+}
+
+.ServiceDetails {
+}
