@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Card() {
+function HeroCard() {
     
     const location = useLocation()
     const data = location.state
@@ -14,7 +14,7 @@ function Card() {
     const navigate = useNavigate()
     
     return (
-        <div className="Card">
+        <div className="HeroCard">
             <h1>{foundDetails.name}</h1>
             <h2>{foundDetails.biography.publisher}</h2>
             <h3>Full Name: {foundDetails.biography.fullName}</h3>
@@ -39,4 +39,4 @@ function Card() {
     )
 }
 
-export default Card
+export default HeroCard

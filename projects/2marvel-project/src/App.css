@@ -1,4 +1,14 @@
-.heroList--container {
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin: 5vh 5vw
+}
+
+/* .heroList--container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -10,3 +20,107 @@
 .heroLink {
     margin: 1%;
 }
+
+.MovieList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.movieList--container, .heroList--container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movieLink--container, .heroLink--container {
+    margin: auto;
+   
+}
+
+.movieLink--container img, .heroLink--container img {
+    width: 28vw;
+    height: auto;
+}
+
+.list--link {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.list--link h3 {
+    width: 26vw;
+    height: 10vh;
+    text-align: center;
+    font-size: 2vh
+}
+
+@media screen and (min-width: 381px) {
+    .list--link h3{
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 436px) {
+    .list--link h3{
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .list--link h3{
+        font-size: 3vw;
+        height: 20vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .list--link h3{
+        font-size: 3vw;
+        height: 20vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* .MovieList {
+    text-align: center;
+}
+
+.movieList--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieLink--container  {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieLink--container img {
+    width: 25vw;
+}
+
+.movieLink--container h3 {
+    height: 5vh;
+    width: 20vw;
+    font-size: 60%;
+}
+
+.list--link {
+
+} */
