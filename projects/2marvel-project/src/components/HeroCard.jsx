@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate, useLocation} from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -9,13 +9,14 @@ function HeroCard() {
     const data = location.state
    
     const {heroId} = useParams()
-    const foundDetails = data.find(data => data.name === heroId)
+    const foundDetails = data.data.find(data => data.name === heroId)
 
     const navigate = useNavigate()
     
     return (
         <div className="HeroCard">
             <h1>{foundDetails.name}</h1>
+            <div className="hero--details">
             <h2>{foundDetails.biography.publisher}</h2>
             <h3>Full Name: {foundDetails.biography.fullName}</h3>
             <h3>Alignment: {foundDetails.biography.alignment}</h3>
@@ -33,8 +34,10 @@ function HeroCard() {
                 <li>Combat: {foundDetails.powerstats.combat}</li>
               </ul>
             </h3>
+            </div>
+            
             <br></br>
-            <button onClick={() => navigate(-1)}>Back</button>
+            {/* <button onClick={() => navigate(-1)}>Back</button> */}
         </div>
     )
 }

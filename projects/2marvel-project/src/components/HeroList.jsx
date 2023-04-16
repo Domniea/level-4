@@ -4,28 +4,45 @@ import { Link } from "react-router-dom";
 
 function HeroList(props) {
 
-    const [heroList, setHeroList] = useState([])
-    const testA = []
-    const [heroA, setHeroA] = useState([]) 
-
+  const [heroList, setHeroList] = useState([])
+  const [heroAlphebetized, setHeroAlphabetized] = useState([])
 
     useEffect(() => {
       axios.get('https://akabab.github.io/superhero-api/api/all.json')
         .then(results => {
-          const data = results.data
-          setHeroList(data)
-
-          data.map(x => {
-            if(x.name[0] === 'A') {
-              setHeroA(prevState => {
-                return [
-                  ...prevState, 
-                  x
-                ]
-              })
-            }
-          })
+        const data = results.data
+        data.map(hero => {
+          if(hero.biography.publisher === 'Marvel Comics') {
+            setHeroList(prevHero => {
+              return [
+                ...prevHero,
+                hero
+              ]
+            })
+          }
         })
+          
+         
+        const getSections = (words) => {
+          if (words.length === 0) {
+            return [];
+          }
+          return Object.values(
+            words.reduce((acc, word) => {
+              let firstLetter = word.name[0];
+              if (!acc[firstLetter]) {
+                acc[firstLetter] = { title: firstLetter, data: [word] };
+              } else {
+                acc[firstLetter].data.push(word);
+              }
+              return acc;
+            }, {})
+          );
+        }
+    
+         setHeroAlphabetized(getSections(data))
+        })
+        
         .catch(error => console.log(error))
     }, [])
 
@@ -49,23 +66,6 @@ function HeroList(props) {
           </h3>
         </Link>
     </div>
-    
-      // return (
-      //   <div 
-      //     className="heroLink"
-      //     key={hero.id}  
-      //   >
-      //     <h3>
-      //       <img src={hero.images.sm} />
-      //       <br></br>
-      //       <Link 
-      //         to={`/heroList/${hero.name}`} 
-      //         state={heroList} 
-      //       >
-      //         {hero.name}
-      //       </Link>
-      //     </h3>
-      //   </div>
         
       )
     })

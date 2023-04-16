@@ -63,7 +63,7 @@ function UglyThing(props) {
             .catch(error => console.log(error))
     }
     
-    const test = comments.map((item,i) => {
+    const test = comments.map((item, i) => {
         return <Comment 
                     key={i}
                     comment={item}

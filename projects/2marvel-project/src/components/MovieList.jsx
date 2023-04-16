@@ -37,24 +37,6 @@ function MovieList() {
                     </Link>
                 </div>
 
-// return <div 
-// className="movieLink--container"
-// key={movie.id}  
-// >
-//     <img 
-//         src={movie.cover_url} 
-//         // style={{width: '20vw'}}
-//     />
-// <h3>
-//     <Link 
-//         to={`/movieList/${movie.title}`} 
-//         state={movieList} 
-//         className="list--link"
-//     >
-//         {movie.title}
-//     </Link>
-// </h3>
-// </div>
     })
 
     return (
