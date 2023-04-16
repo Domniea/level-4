@@ -37,14 +37,14 @@ function LetterGroup(props) {
       
     // console.log(foundDetails)
     
-
+    // background: 'white',
     return (
-        <div className="heroList">
-
+        <div style={{ background: 'white', height: '100vh'}} className="heroList">
+          <h1>Heros/Villains: {letter}</h1>
             <div className="heroList--container">
                 {heros}    
             </div>
-            {/* <button onClick={() => navigate(-1)}>Back</button> */}
+            <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
 }
