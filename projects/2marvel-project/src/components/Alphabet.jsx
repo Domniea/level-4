@@ -53,12 +53,6 @@ function Alphabet() {
       </Link>
   })
 
-  // function showHeros(id) {
-  //   if(window.location.href === '.../heros') {
-  //     return 'https://upload.wikimedia.org/wikipedia/en/1/19/Marvel_Universe_%28Civil_War%29.jpg'
-  //   }
-  // }
-
   return (
       <div 
         className="Alphabet"

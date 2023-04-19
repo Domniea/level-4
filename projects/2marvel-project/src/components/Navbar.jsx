@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import {  Link} from "react-router-dom";
 
-function Alphabet() {
+function Navbar() {
     const [heroAlphebetized, setHeroAlphabetized] = useState([])
 
 
@@ -53,13 +53,11 @@ function Alphabet() {
     })
 
     return (
-        <div className="Navbar">
-          <nav>
+        <nav className="Navbar">
                 {letter} 
-          </nav>
-        </div>
+        </nav>
    
     )
 }
 
-export default Alphabet
+export default Navbar

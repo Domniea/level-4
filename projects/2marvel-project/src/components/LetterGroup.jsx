@@ -1,13 +1,52 @@
+import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function LetterGroup(props) {
+  const [heroAlphebetized, setHeroAlphabetized] = useState([])
 
     const location = useLocation()
-    const data = location.state
+    const info = location.state
+
+    const getSections = (words) => {
+      if (words.length === 0) {
+        return [];
+      }
+      return Object.values(
+        words.reduce((acc, word) => {
+          let firstLetter = word.name[0];
+          if (!acc[firstLetter]) {
+            acc[firstLetter] = { title: firstLetter, data: [word] };
+          } else {
+            acc[firstLetter].data.push(word);
+          }
+          return acc;
+        }, {})
+      );
+    }
+    
+    useEffect(() => {
+      axios.get('https://akabab.github.io/superhero-api/api/all.json')
+        .then(results => {
+            const data = results.data
+            const justMarvel = []
+            data.map(hero => {
+                if(hero.biography.publisher === 'Marvel Comics') {
+                justMarvel.push(hero)
+                }
+            })
+  
+            setHeroAlphabetized(getSections(justMarvel))
+            })
+        
+        .catch(error => console.log(error))
+    }, [])
+
+    // console.log(heroAlphebetized)
 
     const {letter} = useParams()
-    const foundDetails = data.find(x => x.title === letter)
+    const foundDetails = info.find(x => x.title === letter)
 
     const navigate = useNavigate()
 
@@ -35,11 +74,10 @@ function LetterGroup(props) {
         )
       })
       
-    // console.log(foundDetails)
     
     // background: 'white',
     return (
-        <div style={{ background: 'white', height: '100vh'}} className="heroList">
+        <div style={{ /*background: 'white',*/ height: '100vh'}} className="heroList">
           <h1>Heros/Villains: {letter}</h1>
             <div className="heroList--container">
                 {heros}    
