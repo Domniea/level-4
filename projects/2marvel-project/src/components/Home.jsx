@@ -88,17 +88,46 @@ function Home(props) {
         return (fighter1, fighter2)
     }    
 
-    function determineWinner() {
-        const hero1 = fighter1.powerstats.intelligence + fighter1.powerstats.strength +
-                        fighter1.powerstats.speed + fighter1.powerstats.durability +
-                        fighter1.powerstats.power + fighter1.powerstats.combat
-        const hero2 = fighter2.powerstats.intelligence + fighter2.powerstats.strength +
-                        fighter2.powerstats.speed + fighter2.powerstats.durability +
-                        fighter2.powerstats.power + fighter2.powerstats.combat
-        const winner = hero1 < hero2 ? hero1 : hero2
-    }
 
-   
+    
+    // function determineWinner() {
+    //     const hero1 = fighter1.powerstats.intelligence + fighter1.powerstats.strength +
+    //                     fighter1.powerstats.speed + fighter1.powerstats.durability +
+    //                     fighter1.powerstats.power + fighter1.powerstats.combat
+    //     const hero2 = fighter2.powerstats.intelligence + fighter2.powerstats.strength +
+    //                     fighter2.powerstats.speed + fighter2.powerstats.durability +
+    //                     fighter2.powerstats.power + fighter2.powerstats.combat
+    //     const winner = hero1 < hero2 ? hero1 : hero2
+    // }
+
+    function determineWinner() {
+        if (fighter1) {
+            const breakdown1 = Object.entries(fighter1).map(([key,value]) => value)
+            const statsObject1 = breakdown1[3]
+            console.log(statsObject1)
+            const stats1 = Object.values(statsObject1)
+            const final1 = stats1.reduce((acc,cur) => {
+                const final = acc + cur
+                return final
+            }, 0)
+
+            const breakdown2 = Object.entries(fighter2).map(([key,value]) => value)
+            const statsObject2 = breakdown2[3]
+            console.log(statsObject2)
+            const stats2 = Object.values(statsObject2)
+            const final2 = stats2.reduce((acc,cur) => {
+                const final = acc + cur
+                return final
+            }, 0)
+    
+            if(final1 > final2) {
+                return alert(fighter1.name)
+            } else {
+                return alert(fighter2.name)
+            }
+        
+    }
+    }
 
     return(
         <div className="Home">
@@ -106,7 +135,7 @@ function Home(props) {
             <div className="welcomeBackground">
                 <div className="heroFight">
                    { fighter1 && <div className="fighter1">
-                        <img src={fighter1.images.sm} style={{height: '30vh', width: '20vw'}}/>
+                        <img src={fighter1.images.sm} style={{height: '25vh', width: '20vw'}}/>
                         <h2>{fighter1.name}</h2>
                         { on &&
                             <ul><h3>Powerstats: </h3>
@@ -120,7 +149,7 @@ function Home(props) {
                         }
                     </div>}
                    { fighter2 && <div className="fighter2">
-                    <img src={fighter2.images.sm} style={{height: '30vh', width: '20vw'}}/>
+                    <img src={fighter2.images.sm} style={{height: '25vh', width: '20vw'}}/>
                         <h2>{fighter2.name}</h2>
                     { on &&
                             <ul><h3>Powerstats: </h3>
@@ -134,10 +163,12 @@ function Home(props) {
                         }
                     </div> }
                 </div> 
+                <div className="buttonContainer">
+                    <button onClick={getFighters}>Get New Heros</button>
+                    <button onClick={determineWinner}>Show Winner</button>
+                    <button onClick={toggle}>Show Stats</button>
+                </div>
             </div>
-                <button onClick={getFighters}>Push</button>
-                <button onClick={determineWinner}>Push</button>
-                <button onClick={toggle}>Push</button>
             </div>
     )
 }

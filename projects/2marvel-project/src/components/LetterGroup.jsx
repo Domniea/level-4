@@ -9,17 +9,17 @@ function LetterGroup(props) {
     const location = useLocation()
     const info = location.state
 
-    const getSections = (words) => {
-      if (words.length === 0) {
+    const getSections = (arr) => {
+      if (arr.length === 0) {
         return [];
       }
       return Object.values(
-        words.reduce((acc, word) => {
-          let firstLetter = word.name[0];
+        arr.reduce((acc, hero) => {
+          let firstLetter = hero.name[0];
           if (!acc[firstLetter]) {
-            acc[firstLetter] = { title: firstLetter, data: [word] };
+            acc[firstLetter] = { title: firstLetter, data: [hero] };
           } else {
-            acc[firstLetter].data.push(word);
+            acc[firstLetter].data.push(hero);
           }
           return acc;
         }, {})
