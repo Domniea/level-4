@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// import Navbar from "./Navbar";
 
 function LetterGroup(props) {
-  const [heroAlphebetized, setHeroAlphabetized] = useState([])
+  const [heroAlphebetized, setHeroAlphabetized] = useState()
 
     const location = useLocation()
     const info = location.state
+
+    const navigate = useNavigate()
 
     const getSections = (arr) => {
       if (arr.length === 0) {
@@ -43,14 +46,12 @@ function LetterGroup(props) {
         .catch(error => console.log(error))
     }, [])
 
-    // console.log(heroAlphebetized)
-
     const {letter} = useParams()
-    const foundDetails = info.find(x => x.title === letter)
 
-    const navigate = useNavigate()
+    if (heroAlphebetized){
+      const foundDetails = heroAlphebetized.find(x => x.title === letter)
 
-    const heros = foundDetails.data.map(hero => {
+          const heros = foundDetails.data.map(hero => {
         return (
           <div 
             className="heroLink--container"
@@ -73,17 +74,25 @@ function LetterGroup(props) {
           
         )
       })
-      
     
-    // background: 'white',
+    
+
+ 
+
+  console.log(letter)
+      
+  
+
     return (
-        <div style={{ /*background: 'white',*/ height: '100vh'}} className="heroList">
+        <div style={{ /*background: 'white',*/ height: '100vh'}} className="HeroList">
           <h1>Heros/Villains: {letter}</h1>
             <div className="heroList--container">
+          {/* <Navbar /> */}
                 {heros}    
             </div>
             <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
+}
 }
 export default LetterGroup

@@ -42,18 +42,23 @@ function Navbar() {
     }, [])
 
     const letter = heroAlphebetized.map(hero => {
-       return <Link 
+       return<>
+       <li>
+       <Link 
                 key={hero.title}
-                to={`/heros/${hero.title}`} 
+                to={`/${hero.title}`} 
                 state={heroAlphebetized} 
                 className="alphabet--letter"
             >
         {hero.title}
        </Link>
+       </li>
+       </>
     })
 
     return (
         <nav className="Navbar">
+          <ul></ul>
                 {letter} 
         </nav>
    

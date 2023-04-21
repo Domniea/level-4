@@ -12,25 +12,7 @@ import NotFound from './components/NotFound'
 
 
 function App() {
-  const [heroList,setHeroList] = useState()
 
-  const justMarvel =[]
-
-  useEffect(() => {
-    axios.get('https://akabab.github.io/superhero-api/api/all.json')
-    .then(results => {
-        const data = results.data
-        
-        data.map(hero => {
-            if(hero.biography.publisher === 'Marvel Comics') {
-            justMarvel.push(hero)
-            }
-        })
-    })
-    
-    .catch(error => console.log(error))
-    setHeroList(justMarvel)
-}, [])
   return (
     <div className="App">
 
@@ -41,13 +23,15 @@ function App() {
       </nav>
       
       <Routes>
-        <Route index element={<Home state={heroList} />} />
+        <Route index element={<Home />} />
         <Route path='/movieList' element={<MovieList/>} />
         <Route path='/movieList/:movieId/*' element={<MovieCard/>} />
         <Route path='/heros' element={<Alphabet />} >
           <Route path=':letter' element={<LetterGroup />} />
           <Route path=':letter/:heroId' element={<HeroCard />} />
         </Route>
+         {/* <Route path=':letter' element={<LetterGroup />} />
+         <Route path=':letter/:heroId' element={<HeroCard />} /> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

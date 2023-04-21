@@ -43,27 +43,36 @@ function Alphabet() {
   }, [])
 
   const letter = heroAlphebetized.map(hero => {
-      return <Link 
-              key={hero.title}
-              to={`/heros/${hero.title}`} 
-              state={heroAlphebetized} 
-              className="alphabet--letter"
-          >
-      {hero.title}
-      </Link>
+      // return <Link 
+      //         key={hero.title}
+      //         to={`/heros/${hero.title}`} 
+      //         state={heroAlphebetized} 
+      //         className="alphabet--letter"
+      //     >
+      // {hero.title}
+      // </Link>
+     return <>
+       <li>
+       <Link 
+                key={hero.title}
+                to={`/heros/${hero.title}`} 
+                state={heroAlphebetized} 
+                className="alphabet--letter"
+            >
+        {hero.title}
+       </Link>
+       </li>
+       </>
   })
 
   return (
       <div 
         className="Alphabet"
-        >
-          {/* <h1>Poop</h1> */}
-          <div className="navbar">
-            <nav>
-                  {letter} 
-            </nav>
-          </div>
-          <Outlet />
+        >         
+            <ul>
+            {letter} 
+            </ul> 
+             <Outlet />
       </div>
   
     )

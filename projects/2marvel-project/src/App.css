@@ -3,6 +3,7 @@
 
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -13,7 +14,7 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    /* color: white; */
     /* -webkit-text-stroke: black 1px; */
 }
 
@@ -23,18 +24,40 @@ button {
 }
 
 .App {
-    background-image: url('https://d31sxl6qgne2yj.cloudfront.net/wordpress/wp-content/uploads/20200930162752/Marvel-Characters-32-thumb.jpg');
+    background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
     /* position: relative; */
     background-size: cover;
     width: 100vw;
     height: 100vh;
 } 
 
+.app--nav a{
+    color: rgb(0, 208, 187);
+    text-decoration: none;
+}
+
+.app--nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(71, 70, 70);
+    font-size: 2rem;
+    padding: 1vh;
+}
+
 .Home {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.welcomeBackground {
+    background-color: white;
+    color: black;
+    height: 90vh;
+    width: 90vw;
+    padding: 10%;
 }
 
 .welcomeBackground h2 {
@@ -56,19 +79,11 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10%;
+    margin: 5%;
 }
 
 .heroFight ul {
-    text-align: rightleft;
-}
-
-.welcomeBackground {
-    background-color: white;
-    color: black;
-    height: 90vh;
-    width: 90vw;
-    padding: 10%;
+    text-align: left;
 }
 
 .buttonContainer {
@@ -78,74 +93,57 @@ button {
 }
 
 .movieLink--container, .heroLink--container {
-    /* margin: 80vh 1vw; */
     background-color: white;
     border-radius: 10px;
 
 }
 
 .movieLink--container img, .heroLink--container img {
-    width: 28vw;
+    /* width: 28vw; */
     height: auto;
     margin: 1vh .7vw;
     border-radius: 10px;
+}
+.Poop {
+    color: green;
+    display: inline;
 }
 
 .Alphabet {
     /* background-image: url('https://d31sxl6qgne2yj.cloudfront.net/wordpress/wp-content/uploads/20200930162752/Marvel-Characters-32-thumb.jpg');
     position: relative;
-    background-size: cover; */
+    background-size: cover;
     display: inline-block;
-    /* display: grid;
-    grid-template-columns: 10% 90%; */
-    /* height: 100% */
+    display: grid;
+    grid-template-columns: 10% 90%;
+    height: 100% */
+    /* background-color: grey; */
+
 }
 
-.Alphabet nav {
-    /* height: 100vh;
-    float: left;
-    width: 100%;
-    padding: 0 3vw;
-    background-color: black;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    grid-column: 1/2;
-    grid-row: 2/-1 */
+.Alphabet > ul {
+    background-color: grey;
+    list-style: none;
+    float: left;    
+    /* padding: 0; */
 }
 
 .alphabet--letter {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: rgb(15, 225, 221); */
-}
-
-.app--nav a{
     color: rgb(0, 208, 187);
-    text-decoration: none;
 }
 
-.app--nav {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: rgb(71, 70, 70);
-    font-size: 2rem;
-    padding: 1vh;
-}
-
-.heroList h1 {
-    color: black;
+.HeroList h1 {
+    color: orange;
     padding: 5%;
 }
 
-.letterGroup{
-    display: inline-block;
+.HeroCard {
+    background-color: white;
 }
+
+/* .letterGroup{
+    display: inline-block;
+} */
 
 .movieList--container, .heroList--container {
     display: flex;
@@ -154,10 +152,7 @@ button {
     align-items: center;
     padding: 0;
     height: 81vh;
-    width: 100%;
     overflow: scroll;
-    grid-column: 2/3;
-    grid-row: 2 /-3;
 }
 
 .list--link {
