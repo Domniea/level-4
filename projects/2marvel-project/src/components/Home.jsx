@@ -133,10 +133,11 @@ function Home(props) {
         <div className="Home">
             <h1>Welcome Page</h1>
             <div className="welcomeBackground">
+                <h2>Fight Of The Day!</h2>
                 <div className="heroFight">
                    { fighter1 && <div className="fighter1">
-                        <img src={fighter1.images.sm} style={{height: '25vh', width: '20vw'}}/>
-                        <h2>{fighter1.name}</h2>
+                        <img src={fighter1.images.sm}/>
+                        <h3>{fighter1.name}</h3>
                         { on &&
                             <ul><h3>Powerstats: </h3>
                                 <li>intelligence: {fighter1.powerstats.intelligence}</li>
@@ -149,16 +150,16 @@ function Home(props) {
                         }
                     </div>}
                    { fighter2 && <div className="fighter2">
-                    <img src={fighter2.images.sm} style={{height: '25vh', width: '20vw'}}/>
-                        <h2>{fighter2.name}</h2>
+                    <img src={fighter2.images.sm} />
+                        <h3>{fighter2.name}</h3>
                     { on &&
                             <ul><h3>Powerstats: </h3>
-                                <li>intelligence: {fighter1.powerstats.intelligence}</li>
-                                <li>Strength: {fighter1.powerstats.strength}</li>
-                                <li>Speed: {fighter1.powerstats.speed}</li>
-                                <li>Durability: {fighter1.powerstats.durability}</li>
-                                <li>Power: {fighter1.powerstats.power}</li>
-                                <li>Combat: {fighter1.powerstats.combat}</li>
+                                <li>intelligence: {fighter2.powerstats.intelligence}</li>
+                                <li>Strength: {fighter2.powerstats.strength}</li>
+                                <li>Speed: {fighter2.powerstats.speed}</li>
+                                <li>Durability: {fighter2.powerstats.durability}</li>
+                                <li>Power: {fighter2.powerstats.power}</li>
+                                <li>Combat: {fighter2.powerstats.combat}</li>
                             </ul>
                         }
                     </div> }

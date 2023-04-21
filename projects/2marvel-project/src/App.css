@@ -37,11 +37,18 @@ button {
     flex-direction: column;
 }
 
+.welcomeBackground h2 {
+    text-align: center;
+}
+
+.heroFight h2{
+    text-align: center;
+}
+
 .heroFight{
    display: flex;
    justify-content: center;
    align-items: center;
-   margin: 25%;
 }
 
 .fighter1, .fighter2 {
@@ -49,6 +56,11 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10%;
+}
+
+.heroFight ul {
+    text-align: rightleft;
 }
 
 .welcomeBackground {
@@ -56,10 +68,7 @@ button {
     color: black;
     height: 90vh;
     width: 90vw;
-}
-
-.heroFight h2{
-    text-align: center;
+    padding: 10%;
 }
 
 .buttonContainer {
