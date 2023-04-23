@@ -1,12 +1,13 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams, Link, Outlet } from "react-router-dom";
+import wolverine from '/wolverine.png'
 
 function Alphabet() {
   const [heroAlphebetized, setHeroAlphabetized] = useState([])
   const background = 'https://d31sxl6qgne2yj.cloudfront.net/wordpress/wp-content/uploads/20200930162752/Marvel-Characters-32-thumb.jpg'
 
-  const {id} = useParams()
+  const {letter} = useParams()
 
   const getSections = (words) => {
     if (words.length === 0) {
@@ -42,7 +43,7 @@ function Alphabet() {
       .catch(error => console.log(error))
   }, [])
 
-  const letter = heroAlphebetized.map(hero => {
+  const group = heroAlphebetized.map(hero => {
       // return <Link 
       //         key={hero.title}
       //         to={`/heros/${hero.title}`} 
@@ -51,27 +52,37 @@ function Alphabet() {
       //     >
       // {hero.title}
       // </Link>
-     return <>
+     return <div key={hero.title}>
        <li>
-       <Link 
-                key={hero.title}
-                to={`/heros/${hero.title}`} 
-                state={heroAlphebetized} 
-                className="alphabet--letter"
-            >
-        {hero.title}
-       </Link>
-       </li>
-       </>
-  })
+        <Link 
+            to={`/heros/${hero.title}`} 
+            state={heroAlphebetized} 
+            className="alphabet--letter"
+        >
+          {hero.title}
+        </Link>
+      </li>
+      </div>
+    })
+
+    console.log(!letter ? 'poop' : 'boobs')
 
   return (
       <div 
         className="Alphabet"
         >         
             <ul>
-            {letter} 
-            </ul> 
+            {group} 
+            </ul>
+            <br></br>
+            {
+              !letter && 
+
+              <div className="alphabet--home">
+                <h1>Pick a letter to start</h1>
+                <img src={wolverine} className="wolverine"/>
+              </div>
+            }
              <Outlet />
       </div>
   

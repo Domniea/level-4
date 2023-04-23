@@ -12,6 +12,8 @@ function LetterGroup(props) {
 
     const navigate = useNavigate()
 
+    const {letter} = useParams()
+
     const getSections = (arr) => {
       if (arr.length === 0) {
         return [];
@@ -46,8 +48,6 @@ function LetterGroup(props) {
         .catch(error => console.log(error))
     }, [])
 
-    const {letter} = useParams()
-
     if (heroAlphebetized){
       const foundDetails = heroAlphebetized.find(x => x.title === letter)
 
@@ -74,17 +74,9 @@ function LetterGroup(props) {
           
         )
       })
-    
-    
-
- 
-
-  console.log(letter)
-      
-  
 
     return (
-        <div style={{ /*background: 'white',*/ height: '100vh'}} className="HeroList">
+        <div className="HeroList">
           <h1>Heros/Villains: {letter}</h1>
             <div className="heroList--container">
           {/* <Navbar /> */}
