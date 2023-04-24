@@ -3,19 +3,28 @@ import { useParams, useNavigate, useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function MovieCard() {
-    
+
     const location = useLocation()
     const data = location.state
+
+    const [movieList, setMovieList] = useState(data)
+
+
+
    
     const {movieId} = useParams()
+    
     const foundDetails = data.find(data => data.title == movieId)
 
     const navigate = useNavigate()
     
-    
+    console.log(movieList)
+
     return (
         <div className="MovieCard">
-            <div className="movieCard--background">
+          {
+            movieList &&
+           <div className="movieCard--background">
                 <h2>{foundDetails.title}</h2>
                 <img src={foundDetails.cover_url} />
                 <div className="movieCard--details">
@@ -24,7 +33,8 @@ function MovieCard() {
                     <button><a href={foundDetails.trailer_url}>View Trailer</a></button>
                 </div>
             </div>
-            <button onClick={() => navigate(-1)}>Back</button>
+          }
+          <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
 }
