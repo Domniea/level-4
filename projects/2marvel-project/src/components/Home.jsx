@@ -91,7 +91,7 @@ function Home(props) {
                         <h3>{fighter1.name}</h3>
                         { on &&
                             <ul><h3>Powerstats: </h3>
-                                <li>intelligence: {fighter1.powerstats.intelligence}</li>
+                                <li>Intelligence: {fighter1.powerstats.intelligence}</li>
                                 <li>Strength: {fighter1.powerstats.strength}</li>
                                 <li>Speed: {fighter1.powerstats.speed}</li>
                                 <li>Durability: {fighter1.powerstats.durability}</li>

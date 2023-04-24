@@ -14,9 +14,16 @@ function MovieCard() {
     
     
     return (
-        <div className="Card">
-            <h1>{foundDetails.title}</h1>
-            <h2>{foundDetails.saga}</h2>
+        <div className="MovieCard">
+            <div className="movieCard--background">
+                <h2>{foundDetails.title}</h2>
+                <img src={foundDetails.cover_url} />
+                <div className="movieCard--details">
+                    <h3>{foundDetails.saga} {foundDetails.release_date.split('-')[0]}</h3>
+                    <h4 className="movieCard--overview">{foundDetails.overview}</h4>
+                    <button><a href={foundDetails.trailer_url}>View Trailer</a></button>
+                </div>
+            </div>
             <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )

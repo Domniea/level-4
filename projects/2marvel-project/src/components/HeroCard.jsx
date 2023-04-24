@@ -15,26 +15,31 @@ function HeroCard() {
     
     return (
         <div className="HeroCard">
-            <h1>{foundDetails.name}</h1>
-            <div className="hero--details">
-            <h2>{foundDetails.biography.publisher}</h2>
-            <h3>Full Name: {foundDetails.biography.fullName}</h3>
-            <h3>Alignment: {foundDetails.biography.alignment}</h3>
-            <h3>Group Afilliations: {foundDetails.connections.groupAffiliation}</h3>
-
-            
-            <img src={foundDetails.images.md}/>
-            <h3>Power Stats:
-              <ul>
-                <li>Intelligence: {foundDetails.powerstats.intelligence}</li>
-                <li>Strength: {foundDetails.powerstats.strength}</li>
-                <li>Speed: {foundDetails.powerstats.speed}</li>
-                <li>Durability: {foundDetails.powerstats.durability}</li>
-                <li>Power: {foundDetails.powerstats.power}</li>
-                <li>Combat: {foundDetails.powerstats.combat}</li>
-              </ul>
-            </h3>
-            </div>
+            <h2>{foundDetails.name}</h2>
+              <div className="heroCard--details">
+                <h3>{foundDetails.biography.publisher}</h3>
+                <h3>Full Name: {
+                    foundDetails.biography.fullName ?
+                    foundDetails.biography.fullName: 'N/A'
+                  }</h3>
+                <h3>Alignment: {foundDetails.biography.alignment}</h3>
+                {/* <h3>Group Afilliations: {
+                    foundDetails.connections.groupAffiliation.length < 15 ?
+                    foundDetails.connections.groupAffiliation :
+                    foundDetails.connections.groupAffiliation.split(';')[0]
+                  }</h3> */}
+                <img src={foundDetails.images.md}/>
+                <h3 className="stats">Power Stats:
+                  <ul>
+                    <li>Intelligence: {foundDetails.powerstats.intelligence}</li>
+                    <li>Strength: {foundDetails.powerstats.strength}</li>
+                    <li>Speed: {foundDetails.powerstats.speed}</li>
+                    <li>Durability: {foundDetails.powerstats.durability}</li>
+                    <li>Power: {foundDetails.powerstats.power}</li>
+                    <li>Combat: {foundDetails.powerstats.combat}</li>
+                  </ul>
+                </h3>
+              </div>
             
             <br></br>
             {/* <button onClick={() => navigate(-1)}>Back</button> */}

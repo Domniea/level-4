@@ -56,6 +56,7 @@ function Alphabet() {
        <li>
         <Link 
             to={`/heros/${hero.title}`} 
+            style={{fontSize: '1.5rem'}}
             state={heroAlphebetized} 
             className="alphabet--letter"
         >
