@@ -29,7 +29,6 @@ function MovieList() {
                     >
                     <img 
                         src={movie.cover_url} 
-                        // style={{width: '20vw'}}
                     />
                     <h3>
                         {movie.title}   

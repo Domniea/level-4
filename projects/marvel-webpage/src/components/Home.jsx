@@ -29,15 +29,7 @@ function Home() {
         let min = 59 - time.getMinutes()
         let sec = 59 - time.getSeconds()
     
-        // let am_pm = 'AM'
 
-        // if(hour > 12) {
-        //     hour -= 12
-        //     am_pm = 'PM'
-        // } if (hour < 12){
-        //     am_pm = 'AM'
-        // }
-        
         if(hour === 0) {
             getNewHeros()
         }
@@ -98,16 +90,6 @@ function Home() {
         setFighter2(heroData[0][winningNumber2])
         return (fighter1, fighter2)
     }    
-
-    // function getFighters() {
-    //     const random = Math.floor(Math.random() * 269)
-    //     const random2 = Math.floor(Math.random() * 269)
-    //     const winningNumber = random > 269 ? random/2 : random
-    //     const winningNumber2 = random2 > 269 ? random2/2 : random2
-    //     setFighter1(heroData[0][winningNumber])
-    //     setFighter2(heroData[0][winningNumber2])
-    //     return (fighter1, fighter2)
-    // }    
 
     function determineWinner() {
         if (fighter1) {
@@ -179,7 +161,6 @@ function Home() {
                     </div> }
                 </div> 
                 <div className="buttonContainer">
-                    {/* <button onClick={getNewHeros}>Get New Heros</button> */}
                     <button onClick={determineWinner}>Show Winner</button>
                     <button onClick={toggle}>Show Stats</button>
                 </div>

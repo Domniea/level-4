@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate, useLocation} from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function MovieCard() {
 

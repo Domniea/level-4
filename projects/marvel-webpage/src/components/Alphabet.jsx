@@ -5,7 +5,6 @@ import wolverine from '/wolverine.png'
 
 function Alphabet() {
   const [heroAlphebetized, setHeroAlphabetized] = useState([])
-  const background = 'https://d31sxl6qgne2yj.cloudfront.net/wordpress/wp-content/uploads/20200930162752/Marvel-Characters-32-thumb.jpg'
 
   const {letter} = useParams()
 
@@ -44,14 +43,7 @@ function Alphabet() {
   }, [])
 
   const group = heroAlphebetized.map(hero => {
-      // return <Link 
-      //         key={hero.title}
-      //         to={`/heros/${hero.title}`} 
-      //         state={heroAlphebetized} 
-      //         className="alphabet--letter"
-      //     >
-      // {hero.title}
-      // </Link>
+
      return <div key={hero.title}>
        <li>
         <Link 

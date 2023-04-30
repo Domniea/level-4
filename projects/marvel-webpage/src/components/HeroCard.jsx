@@ -1,7 +1,5 @@
 import React from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 function HeroCard() {
     
@@ -23,11 +21,6 @@ function HeroCard() {
                     foundDetails.biography.fullName: 'N/A'
                   }</h3>
                 <h3>Alignment: {foundDetails.biography.alignment}</h3>
-                {/* <h3>Group Afilliations: {
-                    foundDetails.connections.groupAffiliation.length < 15 ?
-                    foundDetails.connections.groupAffiliation :
-                    foundDetails.connections.groupAffiliation.split(';')[0]
-                  }</h3> */}
                 <img src={foundDetails.images.md}/>
                 <h3 className="stats">Power Stats:
                   <ul>

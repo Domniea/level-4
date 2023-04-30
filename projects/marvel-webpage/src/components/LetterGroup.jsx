@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import Navbar from "./Navbar";
+
 
 function LetterGroup(props) {
   const [heroAlphebetized, setHeroAlphabetized] = useState()
@@ -64,7 +64,6 @@ function LetterGroup(props) {
             >
             <img 
                 src={hero.images.sm} 
-                // style={{width: '20vw'}}
             />
             <h3>
                 {hero.name}   
@@ -79,10 +78,8 @@ function LetterGroup(props) {
         <div className="HeroList">
           <h1>Heros/Villains: {letter}</h1>
             <div className="heroList--container">
-          {/* <Navbar /> */}
                 {heros}    
             </div>
-            {/* <button onClick={() => navigate(-1)}>Back</button> */}
         </div>
     )
 }
