@@ -1,29 +1,24 @@
 import React, { useState, useEffect, Suspense } from "react";
 import axios from "axios";
 
+
 function Home() {
 
     const [on, setOn] = useState(false)
     const heroData = []
     const [newHeros, setNewHeros] = useState(false)
-    const [test, setTest] = useState(0)
+    const [countdown, setCountdown] = useState(0)
     const [fighter1, setFighter1] = useState()
-
     const [fighter2, setFighter2] = useState()
 
     const justMarvel = []
 
     let time = new Date()
-    let year = time.getFullYear()
+    let year = time.getFullYear().toString().split('')
     let month = time.getMonth() + 1
     let day = time.getDate()
-    let hour = 23- time.getHours()
-    let min = 59 - time.getMinutes()
-    let sec = 59 - time.getSeconds()
 
-    let am_pm = 'AM'
 
-    setInterval(ShowTime, 1000)
     function ShowTime() {
 
         let time = new Date()
@@ -42,24 +37,30 @@ function Home() {
         // } if (hour < 12){
         //     am_pm = 'AM'
         // }
-
+        
         if(hour === 0) {
             getNewHeros()
         }
- 
+        
         hour = hour < 10 ? "0" + hour : hour;
         min = min < 10 ? "0" + min : min;
         sec = sec < 10 ? "0" + sec : sec;
-
         let currentTime = `${hour}:${min}:${sec}`
         
+        if (currentTime){
+            setCountdown(currentTime)
+        }
 
-        document.getElementById('clock')
-            .innerHTML = currentTime
 
 
     }
 
+
+    useEffect(() =>{
+        setTimeout(ShowTime, 1000)
+    }, [countdown])
+    // setInterval(ShowTime, 1000)
+   
     
 
     useEffect(() => {
@@ -84,8 +85,13 @@ function Home() {
     }
 
     function getFightersTakeTwo() {
-        const random = Math.floor(269/day)
-        const random2 = Math.floor(269/day * 2)
+        const yearNum = year.map(x => parseInt(x))
+        const yearSum = yearNum.reduce((acc, cur)=> {
+            const final = acc + cur
+            return final
+        })
+        const random = Math.floor(269/(day + yearSum + month) *15)
+        const random2 = Math.floor(269/(day + yearSum + month) * 4)
         const winningNumber = random > 269 ? random/2 : random
         const winningNumber2 = random2 > 269 ? random2/2 : random2
         setFighter1(heroData[0][winningNumber])
@@ -93,15 +99,15 @@ function Home() {
         return (fighter1, fighter2)
     }    
 
-    function getFighters() {
-        const random = Math.floor(Math.random() * 269)
-        const random2 = Math.floor(Math.random() * 269)
-        const winningNumber = random > 269 ? random/2 : random
-        const winningNumber2 = random2 > 269 ? random2/2 : random2
-        setFighter1(heroData[0][winningNumber])
-        setFighter2(heroData[0][winningNumber2])
-        return (fighter1, fighter2)
-    }    
+    // function getFighters() {
+    //     const random = Math.floor(Math.random() * 269)
+    //     const random2 = Math.floor(Math.random() * 269)
+    //     const winningNumber = random > 269 ? random/2 : random
+    //     const winningNumber2 = random2 > 269 ? random2/2 : random2
+    //     setFighter1(heroData[0][winningNumber])
+    //     setFighter2(heroData[0][winningNumber2])
+    //     return (fighter1, fighter2)
+    // }    
 
     function determineWinner() {
         if (fighter1) {
@@ -144,7 +150,7 @@ function Home() {
                 <h2>Fight Of The Day!</h2>
                 <div className="heroFight">
                    { fighter1 && <div className="fighter1">
-                        <img src={fighter1.images.sm}/>
+                        <img src={fighter1.images.lg}/>
                         <h3>{fighter1.name}</h3>
                         { on &&
                             <ul><h3>Powerstats: </h3>
@@ -158,7 +164,7 @@ function Home() {
                         }
                     </div>}
                    { fighter2 && <div className="fighter2">
-                    <img src={fighter2.images.sm} />
+                    <img src={fighter2.images.lg} />
                         <h3>{fighter2.name}</h3>
                     { on &&
                             <ul><h3>Powerstats: </h3>
@@ -178,8 +184,9 @@ function Home() {
                     <button onClick={toggle}>Show Stats</button>
                 </div>
                 <div className="timeRemaining">
-                    <h2>Time Reming Before Next Fight</h2>
-                    <h2 id="clock">00:00:00</h2>
+                    <h2>Time until next fight!</h2>
+                    <h2 id='clock'>{countdown}</h2>
+          
                 </div>
             </div>
             </div>

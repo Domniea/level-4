@@ -42,7 +42,7 @@ function HeroCard() {
               </div>
             
             <br></br>
-            {/* <button onClick={() => navigate(-1)}>Back</button> */}
+            <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
 }
