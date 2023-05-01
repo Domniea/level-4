@@ -14,8 +14,9 @@ html {
 }
 
 body {
-    width: 100vw;
-    height:100vh
+    background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
+    background-size: cover;
+    height: 100vh;
 }
 
 div {
@@ -38,13 +39,12 @@ button {
     font-family: 'VTCSuperMarketSaleTall', sans-serif;
 }
 
-.App {
+/* .App {
     background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
-    /* position: relative; */
     background-size: cover;
     width: 100vw;
     height: 100vh;
-} 
+}  */
 
 .app--nav a{
     color: rgb(0, 208, 187);
@@ -67,7 +67,7 @@ button {
     flex-direction: column;
 }
 
-.Home > h1, .MovieList > h1 {
+.Home > h1 {
     color: rgb(255, 255, 255);
     font-family: 'VTCSuperMarketSaleDisplay', sans-serif;
     font-size: 3rem;
@@ -233,7 +233,7 @@ button {
     height: 22rem;
 }
 
-.HeroList h1 {
+.HeroList > h1, .MovieList > h1{
     color: white;
     padding: 1rem;
 }
@@ -343,20 +343,34 @@ button {
         font-size: 32px;
     }
     
+    body {
+        background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
+        background-size: cover;
+        padding-top: 10vh;
+    }
+
     button {
         font-size: 1.5rem;
         padding: .25rem;
+        margin: .25rem;
         border-radius: 10px;
         font-family: 'VTCSuperMarketSaleTall', sans-serif;
     }
 
     .App {
-        background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
+        /* background-image: url('https://mfiles.alphacoders.com/343/343530.jpg');
         position: relative;
-        background-size: cover;
+        background-size: cover; */
         width: 100%;
         height: 100%;
     } 
+
+    .app--nav {
+        position: fixed;
+        width: 100%;
+        height: 10vh;
+        top: 0;
+    }
 
     .Home {
         height: 100%;
@@ -365,20 +379,22 @@ button {
     .Home > h1 {
         font-size: 2rem;
         padding: .5rem;
+        /* padding-top: 10%; */
     }
 
     .welcomeBackground {
         background-color: rgba(255, 255, 255, 0.895);
         color: black;
         width: 90%;
-        margin: .5rem;
-        padding: 1rem;
+        height: 90%;
+        margin: .5rem
     }
 
     .heroFight h3 {
-        padding: 5%
-    }
+        padding: 2%
 
+    }
+    
     .fighter1, .fighter2 {
         display: flex;
         flex-direction: column;
@@ -388,15 +404,15 @@ button {
     }
 
     .fighter1 > img, .fighter2 > img {
-        width: 60%;
+        width: 40%;
     } 
 
-    .timeRemaining {
-        padding: 0;
+    .timeRemaining > h2 {
+        margin: .25rem;
     }
 
-    .MovieList {
-        padding-bottom: 3rem;
+    .timeRemaining {
+        padding: 0.4rem;
     }
 
     .movieLink--container img, .heroLink--container img {
@@ -405,9 +421,27 @@ button {
         margin: 1vh .7vw;
     }
     
+    .movieList--container {
+        height: 75vh;
+        overflow: scroll
+    }
+
+    .MovieCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .movieCard--background, .HeroCard {
+        width: 70%;
+    }
+
     .Alphabet {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100%;
     }
 
@@ -415,12 +449,11 @@ button {
         background-color: grey;
         height: auto;
         list-style: none;
-        
-        /* float: left; */
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
+        width: 100%;
         padding: 0 .5rem
     }
     
@@ -440,39 +473,24 @@ button {
         justify-content: center;
         align-items: center;
     }
+
     .alphabet--home > h1{
         margin: 1rem;
     }
 
     .wolverine {
-        height: 100%;
+        height: 50vh;
     }
 
-    /* .heroCard--details > img {
-        width: 60vw;
-    } */
-}
-
-/* @media screen and (min-width: 436px) {
-    .list--link h3{
-        font-size: 3vw;
+    .heroList--container {
+        height: 65vh;
+        overflow: scroll
     }
-}
 
-@media screen and (min-width: 700px) {
-    .list--link h3{
-        font-size: 3vw;
-        height: 20vh;
+    .HeroList > h1, .MovieList > h1 {
+        padding: .5rem;
     }
 }
-
-@media screen and (min-width: 1000px) {
-    .list--link h3{
-        font-size: 3vw;
-        height: 20vh;
-    }
-} */
-
 
 
 

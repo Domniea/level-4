@@ -12,6 +12,7 @@ function HeroCard() {
     const navigate = useNavigate()
     
     return (
+      <>
         <div className="HeroCard">
             <h2>{foundDetails.name}</h2>
               <div className="heroCard--details">
@@ -35,8 +36,9 @@ function HeroCard() {
               </div>
             
             <br></br>
-            <button onClick={() => navigate(-1)}>Back</button>
         </div>
+            <button onClick={() => navigate(-1)}>Back</button>
+      </>
     )
 }
 
