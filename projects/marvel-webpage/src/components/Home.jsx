@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 
@@ -7,7 +7,7 @@ function Home() {
     const [on, setOn] = useState(false)
     const heroData = []
     const [newHeros, setNewHeros] = useState(false)
-    const [countdown, setCountdown] = useState(0)
+    const [countdown, setCountdown] = useState()
     const [fighter1, setFighter1] = useState()
     const [fighter2, setFighter2] = useState()
 
@@ -22,9 +22,6 @@ function Home() {
     function ShowTime() {
 
         let time = new Date()
-        let year = time.getFullYear()
-        let month = time.getMonth() + 1
-        let day = time.getDate()
         let hour = 23 - time.getHours()
         let min = 59 - time.getMinutes()
         let sec = 59 - time.getSeconds()
@@ -42,18 +39,12 @@ function Home() {
         if (currentTime){
             setCountdown(currentTime)
         }
-
-
-
     }
 
 
     useEffect(() =>{
         setTimeout(ShowTime, 1000)
     }, [countdown])
-    // setInterval(ShowTime, 1000)
-   
-    
 
     useEffect(() => {
         axios.get('https://akabab.github.io/superhero-api/api/all.json')
@@ -66,17 +57,17 @@ function Home() {
                 }
             })
             heroData.push(justMarvel)
-            getFightersTakeTwo()
+            getFighters()
         })
         
         .catch(error => console.log(error))
     }, [newHeros])
 
-    function toggle() {
+    function toggleStats() {
         setOn(prevState => !prevState)
     }
 
-    function getFightersTakeTwo() {
+    function getFighters() {
         const yearNum = year.map(x => parseInt(x))
         const yearSum = yearNum.reduce((acc, cur)=> {
             const final = acc + cur
@@ -124,7 +115,6 @@ function Home() {
         setNewHeros(prevState => !prevState)
     }
 
-
     return(
         <div className="Home">
             <h1>Fun With Marvel!</h1>
@@ -162,7 +152,7 @@ function Home() {
                 </div> 
                 <div className="buttonContainer">
                     <button onClick={determineWinner}>Show Winner</button>
-                    <button onClick={toggle}>Show Stats</button>
+                    <button onClick={toggleStats}>Show Stats</button>
                 </div>
                 <div className="timeRemaining">
                     <h2>Time until next fight!</h2>
@@ -170,7 +160,7 @@ function Home() {
           
                 </div>
             </div>
-            </div>
+        </div>
     )
 }
 

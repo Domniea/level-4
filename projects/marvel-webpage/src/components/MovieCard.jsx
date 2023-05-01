@@ -1,29 +1,23 @@
 import React from "react";
 import { useParams, useNavigate, useLocation} from "react-router-dom";
-import { useState } from "react";
 
 function MovieCard() {
 
     const location = useLocation()
     const data = location.state
 
-    const [movieList, setMovieList] = useState(data)
-
-
-
-   
     const {movieId} = useParams()
     
+  if(data) {
+
     const foundDetails = data.find(data => data.title == movieId)
-
+  
     const navigate = useNavigate()
-    
-    console.log(movieList)
-
+  
     return (
         <div className="MovieCard">
           {
-            movieList &&
+            data &&
            <div className="movieCard--background">
                 <h2>{foundDetails.title}</h2>
                 <img src={foundDetails.cover_url} />
@@ -37,6 +31,8 @@ function MovieCard() {
           <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
+  }
+
 }
 
 export default MovieCard

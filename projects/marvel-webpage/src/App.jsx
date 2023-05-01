@@ -1,14 +1,13 @@
 import { useState,useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import axios from 'axios'
 import Home from './components/Home'
 import HeroCard from './components/HeroCard'
 import MovieList from './components/MovieList'
 import MovieCard from './components/MovieCard'
 import Alphabet from './components/Alphabet'
-import './App.css'
 import LetterGroup from './components/LetterGroup'
 import NotFound from './components/NotFound'
+import './App.css'
 
 
 function App() {
@@ -30,8 +29,6 @@ function App() {
           <Route path=':letter' element={<LetterGroup />} />
           <Route path=':letter/:heroId' element={<HeroCard />} />
         </Route>
-         {/* <Route path=':letter' element={<LetterGroup />} />
-         <Route path=':letter/:heroId' element={<HeroCard />} /> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
