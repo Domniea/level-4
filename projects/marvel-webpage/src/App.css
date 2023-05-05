@@ -106,7 +106,7 @@ button {
     margin: 2%;
 }
 
-.fighter1 > img, .fighter2 > img {
+.fighter--img{
     width: 100%;
 } 
 
@@ -256,7 +256,7 @@ button {
     text-decoration: none;
 }
 
-.list--link h3 {
+.list--link > h3 {
     width: 26vw;
     height: 5vh;
     text-align: center;
@@ -395,6 +395,29 @@ button {
 
     }
     
+    .fighterContainer {
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
     .fighter1, .fighter2 {
         display: flex;
         flex-direction: column;
@@ -403,8 +426,8 @@ button {
         margin: 0;
     }
 
-    .fighter1 > img, .fighter2 > img {
-        width: 40%;
+    .fighter--img {
+        width: 50%;
     } 
 
     .timeRemaining > h2 {
@@ -424,6 +447,11 @@ button {
     .movieList--container {
         height: 75vh;
         overflow: scroll
+    }
+
+    .list--link > h3 {
+        font-size: 1rem;
+        height: 6vh;
     }
 
     .MovieCard {

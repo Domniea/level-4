@@ -121,35 +121,53 @@ function Home() {
             <div className="welcomeBackground">
                 <h2>Fight Of The Day!</h2>
                 <div className="heroFight">
-                   { fighter1 && <div className="fighter1">
-                        <img src={fighter1.images.lg}/>
-                        <h3>{fighter1.name}</h3>
-                        { on &&
-                            <ul><h3>Powerstats: </h3>
-                                <li>Intelligence: {fighter1.powerstats.intelligence}</li>
-                                <li>Strength: {fighter1.powerstats.strength}</li>
-                                <li>Speed: {fighter1.powerstats.speed}</li>
-                                <li>Durability: {fighter1.powerstats.durability}</li>
-                                <li>Power: {fighter1.powerstats.power}</li>
-                                <li>Combat: {fighter1.powerstats.combat}</li>
-                            </ul>
-                        }
-                    </div>}
-                   { fighter2 && <div className="fighter2">
-                    <img src={fighter2.images.lg} />
-                        <h3>{fighter2.name}</h3>
-                    { on &&
-                            <ul><h3>Powerstats: </h3>
-                                <li>intelligence: {fighter2.powerstats.intelligence}</li>
-                                <li>Strength: {fighter2.powerstats.strength}</li>
-                                <li>Speed: {fighter2.powerstats.speed}</li>
-                                <li>Durability: {fighter2.powerstats.durability}</li>
-                                <li>Power: {fighter2.powerstats.power}</li>
-                                <li>Combat: {fighter2.powerstats.combat}</li>
-                            </ul>
-                        }
-                    </div> }
-                </div> 
+                   { fighter1 && 
+                        <div className="fighter1">
+                            <div className="fighterContainer">
+                                <div className="right">
+                                    <img className="fighter--img" src={fighter1.images.lg}/>
+                                    <h3>{fighter1.name}</h3>
+                                </div>
+                                { on &&
+                                    <div className="left">
+                                        <ul className="stats"><h3>Powerstats: </h3>
+                                            <li>Intelligence: {fighter1.powerstats.intelligence}</li>
+                                            <li>Strength: {fighter1.powerstats.strength}</li>
+                                            <li>Speed: {fighter1.powerstats.speed}</li>
+                                            <li>Durability: {fighter1.powerstats.durability}</li>
+                                            <li>Power: {fighter1.powerstats.power}</li>
+                                            <li>Combat: {fighter1.powerstats.combat}</li>
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    }
+                    { fighter2 && 
+                        <div className="fighter2">
+                            <div className="fighterContainer">
+                                <div className="left">
+                                    <img className="fighter--img" src={fighter2.images.lg} />
+                                    <h3>{fighter2.name}</h3>
+                                </div>
+                                { on &&
+                                    <div className="right">
+                                        <ul className="stats"><h3>Powerstats: </h3>
+                                            <li>intelligence: {fighter2.powerstats.intelligence}</li>
+                                            <li>Strength: {fighter2.powerstats.strength}</li>
+                                            <li>Speed: {fighter2.powerstats.speed}</li>
+                                            <li>Durability: {fighter2.powerstats.durability}</li>
+                                            <li>Power: {fighter2.powerstats.power}</li>
+                                            <li>Combat: {fighter2.powerstats.combat}</li>
+                                        </ul>
+                                    </div>
+                                    }
+                            </div>
+                                    
+                        </div> 
+                    }
+                 </div> 
                 <div className="buttonContainer">
                     <button onClick={determineWinner}>Show Winner</button>
                     <button onClick={toggleStats}>Show Stats</button>
