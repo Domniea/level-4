@@ -1,5 +1,4 @@
-import {useState, useEffect, useContext} from "react";
-// import axios from "axios";
+import {useContext} from "react";
 import { useParams, Link, Outlet } from "react-router-dom";
 import { SupeList } from "../SupeListContext";
 import wolverine from '/wolverine.png'

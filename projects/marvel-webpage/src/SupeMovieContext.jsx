@@ -1,9 +1,8 @@
 import axios from "axios";
 import React from "react";
-axios
-import { useState, useEffect} from "react"
+import { useState, useEffect, createContext} from "react"
 
-const SupeMovieList = React.createContext()
+const SupeMovieList = createContext()
 
 function SupeMovieListProvider(props) {
     const [movieList, setMovieList] = useState('')
